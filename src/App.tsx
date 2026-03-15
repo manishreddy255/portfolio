@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Linkedin, Mail, MapPin, ExternalLink, ChevronDown } from 'lucide-react'
+import { Terminal } from '@/components/Terminal'
 
 function App() {
   const [isVisible, setIsVisible] = useState<Record<string, boolean>>({})
@@ -40,6 +41,9 @@ function App() {
             </button>
             <button onClick={() => scrollToSection('experience')} className="text-muted-foreground hover:text-foreground transition-colors">
               Experience
+            </button>
+            <button onClick={() => scrollToSection('terminal')} className="text-muted-foreground hover:text-foreground transition-colors">
+              Terminal
             </button>
             <button onClick={() => scrollToSection('skills')} className="text-muted-foreground hover:text-foreground transition-colors">
               Skills
@@ -213,6 +217,38 @@ function App() {
               <p className="text-muted-foreground">St. Mary's Integrated Campus Hyderabad</p>
               <p className="text-sm text-muted-foreground mt-1">2017 – 2021</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Terminal Section */}
+      <section id="terminal" data-animate className="py-24 px-6 border-t border-border/50">
+        <div className={`max-w-5xl mx-auto transition-all duration-700 ${isVisible['terminal'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div>
+              <h2 className="text-sm font-medium text-muted-foreground mb-4 uppercase tracking-wider">Interactive Terminal</h2>
+              <p className="text-2xl md:text-3xl font-medium mb-4">
+                Prefer the command line?
+              </p>
+              <p className="text-lg text-muted-foreground mb-6">
+                I've built an interactive terminal right into my portfolio. Type commands to explore my background, skills, and experience.
+              </p>
+              <div className="space-y-3 text-sm text-muted-foreground">
+                <p className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  Try <code className="px-1.5 py-0.5 bg-secondary rounded text-xs">help</code> to see all commands
+                </p>
+                <p className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  Use <code className="px-1.5 py-0.5 bg-secondary rounded text-xs">skills frontend</code> to filter skills
+                </p>
+                <p className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  Run <code className="px-1.5 py-0.5 bg-secondary rounded text-xs">neofetch</code> for a surprise
+                </p>
+              </div>
+            </div>
+            <Terminal />
           </div>
         </div>
       </section>
